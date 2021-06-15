@@ -1,0 +1,131 @@
+{
+    "returnValue": true,
+    "devices": [
+        {
+            "deviceUri": "\/tmp\/usb\/sda",
+            "deviceName": "Storage Media",
+            "deviceId": "USB_31413037303630323134313930",
+            "physicalType": "FLASH",
+            "deviceNum": 2,
+            "transferProtocol": "USB_STORAGE",
+            "vendorName": "LG Electronic",
+            "deviceType": "usb",
+            "productName": "Storage Media",
+            "portNum": 1,
+            "caption": "Storage Media",
+            "subCaption": "usb",
+            "thumbnail": "[object Object]",
+            "subDevices": [
+                {
+                    "deviceId": "31413037303630323134313930_1",
+                    "performanceTest": [
+                        {"requestType": "camera", "result": "unchecked"},
+                        {"requestType": "dvr", "result": "unchecked"}
+                    ],
+                    "deviceUri": "\/tmp\/usb\/sda\/sda",
+                    "fileSystem": "tfat",
+                    "lgSmartTvUri": "\/tmp\/usb\/sda\/sda\/LG Smart TV",
+                    "deviceName": "A:",
+                    "device": {},
+                    "caption": "A:",
+                    "subCaption": "undefined",
+                    "thumbnail": {}
+                }
+            ]
+        },
+        {
+            "caption": "CRUZER EXTREME",
+            "deviceId": "USB_30303030303030303031314530433433",
+            "deviceName": "CRUZER EXTREME",
+            "deviceNum": 3,
+            "deviceType": "usb",
+            "deviceUri": "\/tmp\/usb\/sda",
+            "physicalType": "HDD",
+            "portNum": 1,
+            "productName": "CRUZER EXTREME",
+            "subCaption": "usb",
+            "subDevices": [
+                {
+                    "caption": "A:",
+                    "deviceId": "30303030303030303031314530433433_1",
+                    "deviceName": "A:",
+                    "deviceUri": "\/tmp\/usb\/sda\/sda1",
+                    "fileSystem": "tntfs",
+                    "lgSmartTvUri": "\/tmp\/usb\/sda\/sda1\/LG Smart TV",
+                    "performanceTest": [
+                        {"requestType": "camera", "result": "unchecked"},
+                        {"requestType": "dvr", "result": "unchecked"}
+                    ]
+                }
+            ],
+            "transferProtocol": "USB_STORAGE",
+            "vendorName": "JMicron"
+        },
+        {
+            "deviceUri": "\/tmp\/usb\/sda",
+            "deviceName": "LG Electronics Inc.LG External HDD",
+            "subDevices": [
+                {
+                    "deviceId": "1238803958",
+                    "deviceUri": "\/tmp\/usb\/sda\/sda1",
+                    "fileSystem": "tntfs",
+                    "deviceName": "Drive 1"
+                },
+                {
+                    "deviceId": "2053449889",
+                    "deviceUri": "\/tmp\/usb\/sda\/sda2",
+                    "fileSystem": "tntfs",
+                    "deviceName": "Drive 2"
+                }
+            ],
+            "deviceId": "USB_1238803958",
+            "physicalType": "HDD",
+            "deviceNum": 2,
+            "transferProtocol": "USB_STORAGE",
+            "vendorName": "LG Electronics Inc.",
+            "deviceType": "usb",
+            "productName": "LG External HDD",
+            "portNum": 255
+        },
+        {
+            "deviceId": "cd6cf1e7-43fb-459b-a21d-6154d1ffd8fe",
+            "deviceUri": "0",
+            "thumbnailUri": "http:\/\/192.168.0.69:2869\/upnphost\/udhisapi.dll?content=uuid:0bb31ab6-ae1f-46bd-97ea-edfa9821f788",
+            "deviceType": "dms",
+            "deviceName": "SAMPLE1: Sample.DLNA:"
+        },
+        {
+            "deviceUri": "\/tmp\/usb\/sdb",
+            "deviceName": "SanDiskCruzer",
+            "subDevices": [
+                {
+                    "deviceId": "440565852",
+                    "deviceUri": "\/tmp\/usb\/sdb\/sdb1",
+                    "fileSystem": "tfat",
+                    "deviceName": "Drive 1"
+                }
+            ],
+            "deviceId": "USB_440565852",
+            "physicalType": "FLASH",
+            "deviceNum": 3,
+            "transferProtocol": "USB_STORAGE",
+            "vendorName": "SanDisk",
+            "deviceType": "usb",
+            "productName": "Cruzer",
+            "portNum": 3
+        },
+        {
+            "deviceId": "0da2f01a-e999-4fbd-aba9-7a363c9ad8c4",
+            "deviceUri": "0",
+            "thumbnailUri": "http:\/\/192.168.0.69:49156\/virtual\/icon\/icon.jpg",
+            "deviceType": "dms",
+            "deviceName": "LGPC DLNA Sample (SAMPLE)"
+        },
+        {
+            "deviceId": "INTERNAL_STORAGE_CAMERA",
+            "deviceUri": "\/mnt\/lg\/appstore\/cam",
+            "deviceType": "internal camera",
+            "deviceName": "CAMERA_INTERNAL STORAGE"
+        }
+    ]
+}

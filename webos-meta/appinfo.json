@@ -1,0 +1,33 @@
+{
+  "id": "com.webose.app.musicplayer",
+  "version": "0.0.1",
+  "vendor": "LGSI",
+  "type": "web",
+  "main": "index.html",
+  "title": "Music Player",
+  "icon": "icon.png",
+  "transparent": true,
+  "visible": true,
+  "lockable": false,
+  "noSplashOnLaunch": true,
+  "supportQuickStart": false,
+  "trustLevel": "trusted",
+  "requiredPermissions": [
+    "audio.operation",
+    "media.operation",
+    "mediacontroller.operation",
+    "mediaindexer.operation",
+    "mediapipeline.resourcemanagement",
+    "mediapipeline.operation",
+    "session.management",
+    "sleep.management",
+    "physicaldevice.management",
+    "physicaldevice.query",
+    "time.query",
+    "activity.operation"
+  ],
+  "accessibility": {
+    "supportsAudioGuidance": true
+  },
+  "uiRevision": 1
+}
