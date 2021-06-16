@@ -33,8 +33,8 @@ function AlbumInfo({ duration, currentTime, title, artist, album, locale, thumbn
     <div className={css.album}>
         <img className={css.albumimage} src={imgSrc} />
         <div className={css.info}>
-          <marquee>
-            <p className={css.title}>{title}</p>
+          <marquee className={css.title}>
+            <p>{title}</p>
           </marquee>
           <p className={css.subtitle}>{artist}</p>
           <p className={css.albumName}>{album}</p>

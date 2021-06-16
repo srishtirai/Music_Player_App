@@ -320,6 +320,7 @@ const MediaControlsBase = kind({
             />
           {noJumpButtons ? null : (
             <MediaButton
+              className={css.mediaButton}
               aria-label={$L("Previous")}
               backgroundOpacity="transparent"
               disabled={mediaDisabled || jumpButtonsDisabled}
@@ -330,6 +331,7 @@ const MediaControlsBase = kind({
             />
           )}
           <MediaButton
+            className={css.mediaButton}
             aria-label={paused ? $L("Play") : $L("Pause")}
             className={spotlightDefaultClass}
             backgroundOpacity="transparent"
@@ -341,6 +343,7 @@ const MediaControlsBase = kind({
           />
           {noJumpButtons ? null : (
             <MediaButton
+              className={css.mediaButton}
               aria-label={$L("Next")}
               backgroundOpacity="transparent"
               disabled={mediaDisabled || jumpButtonsDisabled}

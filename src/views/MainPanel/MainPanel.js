@@ -7,7 +7,6 @@ import { Panel, Header } from "../../../goldstone/Panels";
 import AudioList from "../../components/AudioList/AudioList";
 
 import { changePath } from "../../actions/navigationActions";
-import { getDeviceList } from "../../actions/deviceActions";
 import {
   getAudioList,
   getCurrentAudioMetaData,
@@ -18,14 +17,13 @@ import css from "./MainPanel.module.less";
 const MainPanel = ({
   devices,
   handleNavigate,
-  getListDevice,
   getListAudio,
   getAudioMetaData,
   audioList,
   ...rest
 }) => {
   useEffect(() => {
-    getListDevice();
+    getListAudio("storage:///media/multimedia");
   }, []);
 
   const handleAudioNavigate = (url, AudioMetaData, index) => {
@@ -36,46 +34,23 @@ const MainPanel = ({
   return (
     <Panel {...rest}>
       <Header />
-      <TabLayout>
-        {devices.map((device) => {
-          return (
-            device.deviceList.length > 0 &&
-            device.deviceList.map((deviceList, index) => {
-              return (
-                <Tab
-                  className={css.tab}
-                  key={deviceList.uri}
-                  icon="usb"
-                  onTabClick={() => getListAudio(deviceList.uri)}
-                  title={deviceList.name}
-                >
-                  <AudioList
-                    key={index}
-                    audiolist={audioList}
-                    handleNavigate={handleAudioNavigate}
-                  />
-                </Tab>
-              );
-            })
-          );
-        })}
-      </TabLayout>
+        <AudioList
+          audiolist={audioList}
+          handleNavigate={handleAudioNavigate}
+        />
     </Panel>
   );
 };
 
 MainPanel.propTypes = {
-  deviceList: PropTypes.array,
-  getListDevice: PropTypes.func,
   getListAudio: PropTypes.func,
   getAudioMetaData: PropTypes.func,
   handleNavigate: PropTypes.func,
   audioList: PropTypes.array,
 };
 
-const mapStateToProps = ({ device, audio }) => {
+const mapStateToProps = ({audio }) => {
   return {
-    devices: device.deviceList,
     audioList: audio.audioList,
   };
 };
@@ -83,12 +58,6 @@ const mapStateToProps = ({ device, audio }) => {
 const mapDispatchToState = (dispatch) => {
   return {
     handleNavigate: (path) => dispatch(changePath(path)),
-    getListDevice: () =>
-      dispatch(
-        getDeviceList({
-          subscribe: true,
-        })
-      ),
     getListAudio: (uri) =>
       dispatch(
         getAudioList({
