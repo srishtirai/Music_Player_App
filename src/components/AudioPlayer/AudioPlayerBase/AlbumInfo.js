@@ -36,8 +36,8 @@ function AlbumInfo({ duration, currentTime, title, artist, album, locale, thumbn
           <marquee className={css.title}>
             <p>{title}</p>
           </marquee>
-          <p className={css.subtitle}>{artist}</p>
-          <p className={css.albumName}>{album}</p>
+          <p className={css.subtitle}>{artist?artist:'Artist information is not available'}</p>
+          <p className={css.albumName}>{album?album:'Album information is not available'}</p>
           <div className={css.timeInfo}>
           <Times
             noTotalTime

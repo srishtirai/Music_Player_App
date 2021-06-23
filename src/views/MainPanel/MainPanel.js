@@ -32,7 +32,7 @@ const MainPanel = ({
   };
 
   return (
-    <Panel {...rest}>
+    <Panel className={css.container} {...rest}>
       <Header />
         <AudioList
           audiolist={audioList}
