@@ -1,10 +1,10 @@
 {
-  "id": "com.webose.app.musicplayer",
+  "id": "com.app.btcarkit",
   "version": "0.0.1",
   "vendor": "LGSI",
   "type": "web",
   "main": "index.html",
-  "title": "Music Player",
+  "title": "BT CarKit Music",
   "icon": "icon.png",
   "transparent": true,
   "visible": true,
