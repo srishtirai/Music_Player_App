@@ -1,0 +1,18 @@
+{  
+    "subscribed":true,
+    "adapters":[  
+       {  
+          "powered":true,
+          "discoveryTimeout":20,
+          "pairing":true,
+          "discoverableTimeout":30,
+          "name":"LG",
+          "adapterAddress":"00:00:dd:41:6b:ef",
+          "discovering":false,
+          "discoverable":false,
+          "pairable":true,
+          "pairableTimeout":30
+       }
+    ],
+    "returnValue":true
+ }

@@ -23,7 +23,7 @@ const MainPanel = ({
   ...rest
 }) => {
   useEffect(() => {
-    getListAudio("storage:///media/multimedia");
+    // getListAudio("storage:///media/multimedia");
   }, []);
 
   const handleAudioNavigate = (url, AudioMetaData, index) => {

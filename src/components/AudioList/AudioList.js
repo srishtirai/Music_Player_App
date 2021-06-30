@@ -53,14 +53,6 @@ const audioList = ({ audiolist, handleNavigate }) => {
     <VirtualGridList
       direction="vertical"
       dataSize={audiolist.length}
-      isVerticalScrollbarVisible = {true}
-      overscrollEffectOn={{
-        arrowKey: true,
-        drag: true,
-		pageKey: true,
-		track: true,
-		wheel: true
-      }}
       itemRenderer={renderItem}
       itemSize={{
         minWidth: ri.scale(3000),
