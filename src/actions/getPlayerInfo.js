@@ -29,20 +29,20 @@ const getPlayerInfo = (address) => (dispatch) => {
 						}
 					});
 				}
-				else{
-					console.log(playerInfo.playerInfo[0].name)
-					dispatch({
-						type: 'PLAYER_INFO',
-						payload: {
-							browsable: true,
-							name: playerInfo.playerInfo[0].name,
-							playlistPath: playerInfo.playerInfo[0].playlistPath,
-							searchable: playerInfo.playerInfo[0].searchable,
-							address
-						}
-					});
-					// console.log(configureStore.getState());
-				}
+				// else{
+				// 	console.log(playerInfo.playerInfo[0].name)
+				// 	dispatch({
+				// 		type: 'PLAYER_INFO',
+				// 		payload: {
+				// 			browsable: true,
+				// 			name: playerInfo.playerInfo[0].name,
+				// 			playlistPath: playerInfo.playerInfo[0].playlistPath,
+				// 			searchable: playerInfo.playerInfo[0].searchable,
+				// 			address
+				// 		}
+				// 	});
+				// 	// console.log(configureStore.getState());
+				// }
 			}
 		);
 	});

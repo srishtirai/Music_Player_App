@@ -60,36 +60,36 @@ const getFolderItems = (address, noOfItems, step) => (dispatch) => {
 							});
 						}
 				}
-				else{
-				if(step==='INITIAL') {
-					res=initialFolder;
-					for (let i=0; i < res.folderItems.length; i++) {
-						if (res.folderItems[i].name === "/Filesystem/My library") {
-							dispatch(changePath(address, res.folderItems[i].path))
-							resolve(res.folderItems[i].path);
-						}
-					}
-					dispatch({
-						type: 'FOLDER_ITEMS_'+step,
-						payload: {
-							folderItems: res.folderItems
-						}
-					});
-				}
+				// else{
+				// if(step==='INITIAL') {
+				// 	res=initialFolder;
+				// 	for (let i=0; i < res.folderItems.length; i++) {
+				// 		if (res.folderItems[i].name === "/Filesystem/My library") {
+				// 			dispatch(changePath(address, res.folderItems[i].path))
+				// 			resolve(res.folderItems[i].path);
+				// 		}
+				// 	}
+				// 	dispatch({
+				// 		type: 'FOLDER_ITEMS_'+step,
+				// 		payload: {
+				// 			folderItems: res.folderItems
+				// 		}
+				// 	});
+				// }
 
-				else if(step==='FINAL') {
-					dispatch(changePath(address, "player0/Filesystem/item3/item7"));
-					resolve("player0/Filesystem/item3/item7");
-				}
-				else{
-					dispatch({
-						type: 'FOLDER_ITEMS_'+step,
-						payload: {
-							audioItems: mockAudioList.folderItems
-						}
-					});
-				}
-				}
+				// else if(step==='FINAL') {
+				// 	dispatch(changePath(address, "player0/Filesystem/item3/item7"));
+				// 	resolve("player0/Filesystem/item3/item7");
+				// }
+				// else{
+				// 	dispatch({
+				// 		type: 'FOLDER_ITEMS_'+step,
+				// 		payload: {
+				// 			audioItems: mockAudioList.folderItems
+				// 		}
+				// 	});
+				// }
+				// }
 			}
 		);
 	});
