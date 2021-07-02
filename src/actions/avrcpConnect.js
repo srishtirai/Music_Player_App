@@ -15,13 +15,7 @@ const avrcpConnect = (address) => (dispatch) => {
 			},
 			(res) => {
 				normalLog('avrcpConnect Response: ' + JSON.stringify(res), {}, '');
-				if (res.returnValue){
-					dispatch(getAVRCPStatus(address));
-					resolve(res);
-				}
-				// else{
-				// 	dispatch(getAVRCPStatus(address));
-				// }
+				resolve(address);
 			}
 		);
 	});

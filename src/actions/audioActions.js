@@ -1,7 +1,6 @@
 import { types } from "./types";
 import { Audio } from "../services";
 import LS2Request from "@enact/webos/LS2Request";
-import mockAudioList from "../../assets/mock/audioList.json";
 
 const getCurrentAudioRequest = () => {
   return {

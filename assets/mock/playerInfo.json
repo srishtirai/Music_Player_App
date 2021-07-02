@@ -1,0 +1,16 @@
+{
+    "subscribed": true,
+    "returnValue": true,
+    "playerInfo": [
+        {
+            "addressed": true,
+            "browsable": true,
+            "name": "Bluetooth Player",
+            "type": "Audio",
+            "playlistPath": "player0/NowPlaying",
+            "searchable": false
+        }
+    ],
+    "adapterAddress": "b8:27:eb:d3:13:ef",
+    "address": "a4:f0:5e:cd:14:0e"
+}

@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 import ImageItem from "../../../goldstone/ImageItem";
 import { VirtualGridList } from "../../../goldstone/VirtualList/VirtualList";
@@ -10,10 +9,10 @@ import css from './AudioList.module.less';
 
 const audioList = ({ audiolist, handleNavigate }) => {
   const getDuration=(duration)=>{
-    var hrs = ~~(duration / 3600);
-    var mins = ~~((duration % 3600) / 60);
-    var secs = ~~duration % 60;
-    var ret = "";
+    let hrs = ~~(duration / 3600);
+    let mins = ~~((duration % 3600) / 60);
+    let secs = ~~duration % 60;
+    let ret = "";
 
     if (hrs > 0) {
         ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
@@ -23,23 +22,22 @@ const audioList = ({ audiolist, handleNavigate }) => {
     ret += "" + secs;
     return ret;
   };
-  
+ 
   const renderItem = ({ index, ...rest }) => {
-    let encodedPath = getEncodedPath(audiolist[index].thumbnail);
-
+    // let encodedPath = getEncodedPath(audiolist[index].thumbnail);
     return (<>
       <ImageItem
         {...rest}
         className={css.imageItem}
-        src={encodedPath}
+        // src={encodedPath}
         oreintation="horizontal"
         placeholder={placeHolderImg}
         onClick={() => handleNavigate("/audioplayer", audiolist[index], index)}
       />
       <div className={css.audioInfo} onClick={() => handleNavigate("/audioplayer", audiolist[index], index)}>
-        <strong className={css.title}>{audiolist[index].title.replace('mp3','')}</strong>
+        <strong className={css.title}>{audiolist[index].metaData.title}</strong>
         <p className={css.subtitle}>
-          {(audiolist[index].artist?audiolist[index].artist:audiolist[index].album)+" "+getDuration(audiolist[index].duration)}
+          {(audiolist[index].artist?audiolist[index].artist:audiolist[index].metaData.album)+" "+getDuration(audiolist[index].metaData.duration)}
         </p>
       </div>
       <hr className={css.divider}></hr>

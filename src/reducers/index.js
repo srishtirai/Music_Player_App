@@ -5,6 +5,9 @@ import BTStatus from './BTStatus';
 import adapterStatus from './adapterStatus';
 import avrcpConnectionStatus from "./avrcpConnectionStatus";
 import playerInfo from "./playerInfo";
+import folderItems from "./folderItems";
+import noOfFolderItems from "./numberOfFolderItems";
+import folderPath from "./folderPath";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
@@ -14,6 +17,9 @@ const rootReducer = combineReducers({
   BTStatus,
   adapterStatus,
   avrcpConnectionStatus,
-  playerInfo
+  playerInfo,
+  folderItems,
+  noOfFolderItems,
+  folderPath
 });
 export default rootReducer;

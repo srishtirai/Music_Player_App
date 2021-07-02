@@ -1,5 +1,7 @@
 import lunaAction from './lunaActions';
 import normalLog from '../utils/normalLog';
+import configureStore from '../store/configureStore';
+import playerInfo from "../../assets/mock/playerInfo.json";
 
 const getPlayerInfo = (address) => (dispatch) => {
 	return new Promise((resolve) => {
@@ -15,30 +17,32 @@ const getPlayerInfo = (address) => (dispatch) => {
 			},
 			(res) => {
                 normalLog('playerInfo : ' + JSON.stringify(res), {}, '');
-				if(res.returnValue && res.browsable){
+				if(res.returnValue){
 					dispatch({
 						type: 'PLAYER_INFO',
 						payload: {
-							browsable: true,
-							name: res.name,
-							playlistPath: res.playlistPath,
-							searchable: res.searchable,
+							browsable: res.playerInfo[0].browsable,
+							name: res.playerInfo[0].name,
+							playlistPath: res.playerInfo[0].playlistPath,
+							searchable: res.playerInfo[0].searchable,
 							address
 						}
 					});
 				}
-				// else{
-				// 	dispatch({
-				// 		type: 'PLAYER_INFO',
-				// 		payload: {
-				// 			browsable: true,
-				// 			name: res.name,
-				// 			playlistPath: res.playlistPath,
-				// 			searchable: res.searchable,
-				// 			address
-				// 		}
-				// 	});
-				// }
+				else{
+					console.log(playerInfo.playerInfo[0].name)
+					dispatch({
+						type: 'PLAYER_INFO',
+						payload: {
+							browsable: true,
+							name: playerInfo.playerInfo[0].name,
+							playlistPath: playerInfo.playerInfo[0].playlistPath,
+							searchable: playerInfo.playerInfo[0].searchable,
+							address
+						}
+					});
+					// console.log(configureStore.getState());
+				}
 			}
 		);
 	});

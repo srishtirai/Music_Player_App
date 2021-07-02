@@ -17,27 +17,29 @@ const getAVRCPStatus = (address) => (dispatch) => {
 			(res) => {
 				normalLog('avrcpConnectionStatus Response: ' + JSON.stringify(res), {}, '');
 				if (res.returnValue) {
+					dispatch({
+						type: 'AVRCP_CONNECTED',
+						payload: {
+							connected: res.connected,
+							address
+						}
+					});
 					if(res.connected){
-						dispatch({
-							type: 'AVRCP_CONNECTED',
-							payload: {
-								connected: true,
-								address
-							}
-						});
 						dispatch(getPlayerInfo(address));
+						resolve(address);
 					}
 				}
-				// else{
-				// 	dispatch({
-				// 		type: 'AVRCP_CONNECTED',
-				// 		payload: {
-				// 			connected: true,
-				// 			address
-				// 		}
-				// 	});
-				// 	dispatch(getPlayerInfo(address));
-				// }
+				else{
+					dispatch({
+						type: 'AVRCP_CONNECTED',
+						payload: {
+							connected: true,
+							address
+						}
+					});
+					dispatch(getPlayerInfo(address));
+					resolve(address);
+				}
 			}
 		);
 	});

@@ -1,0 +1,31 @@
+{
+    "adapterAddress": "b8:27:eb:d3:13:ef",
+    "returnValue": true,
+    "folderItems": [
+        {
+            "path": "player0/Filesystem/item1",
+            "name": "/Filesystem/Home",
+            "type": "Folder",
+            "playable": false
+        },
+        {
+            "path": "player0/Filesystem/item2",
+            "name": "/Filesystem/Playlists",
+            "type": "Folder",
+            "playable": false
+        },
+        {
+            "path": "player0/Filesystem/item3",
+            "name": "/Filesystem/My library",
+            "type": "Folder",
+            "playable": false
+        },
+        {
+            "path": "player0/Filesystem/item4",
+            "name": "/Filesystem/Streams",
+            "type": "Folder",
+            "playable": false
+        }
+    ],
+    "address": "a4:f0:5e:cd:14:0e"
+}

@@ -34,7 +34,7 @@ const getBTDetails = (adapterAddress, name) => (dispatch) => {
 							}
 						});
 						if (address) {
-							dispatch(avrcpConnect(address));
+							// dispatch(avrcpConnect(address));
 							resolve(address);
 						}
 					} else {
@@ -46,18 +46,19 @@ const getBTDetails = (adapterAddress, name) => (dispatch) => {
 						});
 					}
 				}
-				// else {
-				// 	const address = "00:18:6b:4e:47:03";
-				// 	dispatch(avrcpConnect(address));
-				// 	dispatch({
-				// 		type: 'BTDETAILS_LOADED',
-				// 			payload: {
-				// 				connected: true,
-				// 				address,
-				// 				name: 'LG'
-				// 			}
-				// 	});
-				// }
+				else {
+					const address = "00:18:6b:4e:47:03";
+					// dispatch(avrcpConnect(address));
+					resolve(address);
+					dispatch({
+						type: 'BTDETAILS_LOADED',
+							payload: {
+								connected: true,
+								address,
+								name: 'LG'
+							}
+					});
+				}
 			}
 		);
 	});
