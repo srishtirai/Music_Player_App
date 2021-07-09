@@ -124,6 +124,8 @@ function AudioPlayerBase({
   onBack,
   onJumpBackward,
   onJumpForward,
+  playMusic,
+  pauseMusic,
   seekDisabled,
   selection,
   spotlightDisabled,
@@ -659,10 +661,15 @@ function AudioPlayerBase({
     forward("onEnded", {}, arguments[0]);
   };
 
-  const handlePlay = handle(forwardPlay, shouldShowMiniFeedback, () => play());
+  const handlePlay = handle(forwardPlay, shouldShowMiniFeedback, () => {
+    play();
+    playMusic();
+  });
 
-  const handlePause = handle(forwardPause, shouldShowMiniFeedback, () =>
-    pause()
+  const handlePause = handle(forwardPause, shouldShowMiniFeedback, () => {
+    pause();
+    pauseMusic();
+  }
   );
 
   const handleJump = useCallback(

@@ -1,37 +1,49 @@
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { changePath } from "../../actions/navigationActions";
-import { getCurrentAudioMetaData } from "../../actions/audioActions";
 import AudioPlayer from "../../components/AudioPlayer/AudioPlayer";
+import setSelectedItem from "../../actions/audioActions";
+import playOrPauseItem from "../../actions/playOrPausetem";
 
 const AudioPanel = ({
-  audioMetaData,
-  audioList,
+  audioItems,
   audioIndex,
   handleBack,
-  getAudioMetaData,
+  setSelectedItem,
+  audioMetaData,
+  playOrPauseItem
 }) => {
   const handleNextAudio = () => {
-    if (audioList && audioList.length > 0) {
-      if (audioIndex === audioList.length - 1) {
-        getAudioMetaData(audioList[0].uri, 0);
+    if (audioItems && audioItems.length > 0) {
+      if (audioIndex === audioItems.length - 1) {
+        setSelectedItem(audioItems[0], 0);
       } else {
-        getAudioMetaData(audioList[audioIndex + 1].uri, audioIndex + 1);
+        setSelectedItem(audioItems[audioIndex + 1], audioIndex + 1);
       }
     }
   };
 
   const handlePreviousAudio = () => {
-    if (audioList && audioList.length > 0) {
+    if (audioItems && audioItems.length > 0) {
       if (audioIndex === 0) {
-        getAudioMetaData(
-          audioList[audioList.length - 1].uri,
-          audioList.length - 1
+        setSelectedItem(
+          audioItems[audioItems.length - 1],
+          audioItems.length - 1
         );
       } else {
-        getAudioMetaData(audioList[audioIndex - 1].uri, audioIndex - 1);
+        setSelectedItem(
+          audioItems[audioIndex - 1], audioIndex - 1
+        );
       }
     }
+  };
+
+  const play = () =>{
+    playOrPauseItem(play);
+  };
+
+  const pause = () =>{
+    playOrPauseItem(pause);
   };
 
   return (
@@ -39,6 +51,8 @@ const AudioPanel = ({
       autoCloseTimeout={7000}
       disabled={false}
       feedbackHideDelay={3000}
+      playMusic={play}
+      pauseMusic={pause}
       handleBack={() => handleBack("home")}
       handleNext={handleNextAudio}
       handlePrevious={handlePreviousAudio}
@@ -52,7 +66,7 @@ const AudioPanel = ({
       playlist={audioMetaData}
       seekDisabled={false}
       spotlightDisabled={false}
-      thumbnailSrc={audioMetaData.thumbnail}
+      thumbnailSrc={audioMetaData.metaData.thumbnail}
       title={"Goldstone AudioPlayer "}
       titleHideDelay={4000}
     />
@@ -60,33 +74,25 @@ const AudioPanel = ({
 };
 
 AudioPanel.propTypes = {
-  getAudioMetaData: PropTypes.func,
   handleBack: PropTypes.func,
   audioIndex: PropTypes.number,
-  audioList: PropTypes.array,
+  audioItems: PropTypes.array,
   audioMetaData: PropTypes.object,
 };
 
-const mapStateToProps = ({
-  audio: { currentAudioMetaData, audioList, audioIndex },
-}) => {
+const mapStateToProps = ({folderItems, selectedMusic}) => {
   return {
-    audioMetaData: currentAudioMetaData,
-    audioList: audioList,
-    audioIndex: audioIndex,
+    audioItems: folderItems.audioItems,
+    audioIndex: selectedMusic.index,
+    audioMetaData: selectedMusic.audioMetaData
   };
 };
 
 const mapDispatchToState = (dispatch) => {
   return {
     handleBack: (path) => dispatch(changePath(path)),
-    getAudioMetaData: (uri, index) =>
-      dispatch(
-        getCurrentAudioMetaData({
-          uri: uri,
-          audioIndex: index,
-        })
-      ),
+    setSelectedItem: (audioMetaData, index) => dispatch(setSelectedItem(audioMetaData, index)),
+    playOrPauseItem: (status) => dispatch(playOrPauseItem(status))
   };
 };
 

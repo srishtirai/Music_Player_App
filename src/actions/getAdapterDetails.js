@@ -28,16 +28,16 @@ const getAdapterDetails = (name) => (dispatch) => {
 						}
 					});
 				}
-				// else {
-				// 	resolve("00:00:dd:41:6b:ef");
-				// 	dispatch({
-				// 		type: 'ADPATERDETAILS_LOADED',
-				// 		payload: {
-				// 			powered:true,
-				// 			adapterAddress:"00:00:dd:41:6b:ef"
-				// 		}
-				// 	});
-				// }
+				else {
+					resolve("00:00:dd:41:6b:ef");
+					dispatch({
+						type: 'ADPATERDETAILS_LOADED',
+						payload: {
+							powered:true,
+							adapterAddress:"00:00:dd:41:6b:ef"
+						}
+					});
+				}
 			}
 		);
 	});

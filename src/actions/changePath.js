@@ -25,15 +25,15 @@ const changeItemPath = (address, path) => (dispatch) => {
 						});
 						resolve(path);
 				}
-				// else{
-				// 	dispatch({
-				// 		type: 'FOLDER_PATH_CHANGED',
-				// 		payload: {
-				// 			path
-				// 		}
-				// 	});
-				// 	resolve(path);
-				// }
+				else{
+					dispatch({
+						type: 'FOLDER_PATH_CHANGED',
+						payload: {
+							path
+						}
+					});
+					resolve(path);
+				}
 			}
 		);
 	});

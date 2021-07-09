@@ -20,20 +20,22 @@ const AudioPlayer = ({
   handleNext,
   handlePrevious,
   playlist,
+  playMusic,
+  pauseMusic,
   ...rest
 }) => {
   const [state] = useReducer(AudioPlayerReducer, initialState);
-  const getAudioType = (file_path) => {
+  const getAudioType = (path) => {
     let mimeType = "audio/mp3";
-    if (file_path && file_path.length > 0) {
-      let extension = file_path.substring(file_path.lastIndexOf(".") + 1);
+    if (path && path.length > 0) {
+      let extension = path.substring(path.lastIndexOf(".") + 1);
       if (extension && extension.length > 0) {
         mimeType = "audio/" + extension;
       }
     }
     return mimeType;
   };
-  let extType = getAudioType(playlist.file_path);
+  let extType = getAudioType(playlist.path);
   return (
     <AudioPlayerBase
       {...rest}
@@ -41,14 +43,16 @@ const AudioPlayer = ({
       onJumpBackward={handlePrevious}
       onBack={handleBack}
       loop={state.repeat.loop}
-      poster={playlist.thumbnail}
-      thumbnailSrc={playlist.thumbnail}
-      title={playlist.title}
-      artist={playlist.artist}
-      album={playlist.album}
-      infoComponents={playlist.title}
+      poster={playlist.metaData.thumbnail}
+      thumbnailSrc={playlist.metaData.thumbnail}
+      title={playlist.metaData.title}
+      artist={playlist.metaData.artist}
+      album={playlist.metaData.album}
+      infoComponents={playlist.metaData.title}
+      playMusic={playMusic}
+      pauseMusic={pauseMusic}
     >
-      <source src={playlist.file_path} type={extType} />
+      <source src={playlist.path} type={extType} />
     </AudioPlayerBase>
   );
 };

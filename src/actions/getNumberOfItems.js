@@ -24,15 +24,15 @@ const getNumberOfItems = (address,step) => (dispatch) => {
 						resolve(res.numberOfItems);
 					}
 				}
-				// else{
-				// 	dispatch({
-				// 		type: 'NOOFITEMS_'+step,
-				// 		payload: {
-				// 			noOfItems: 4
-				// 		}
-				// 	});
-				// 	resolve(4);
-				// }
+				else{
+					dispatch({
+						type: 'NOOFITEMS_'+step,
+						payload: {
+							noOfItems: 4
+						}
+					});
+					resolve(4);
+				}
 			}
 		);
 	});

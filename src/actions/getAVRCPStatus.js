@@ -29,17 +29,17 @@ const getAVRCPStatus = (address) => (dispatch) => {
 						resolve(address);
 					}
 				}
-				// else{
-				// 	dispatch({
-				// 		type: 'AVRCP_CONNECTED',
-				// 		payload: {
-				// 			connected: true,
-				// 			address
-				// 		}
-				// 	});
-				// 	dispatch(getPlayerInfo(address));
-				// 	resolve(address);
-				// }
+				else{
+					dispatch({
+						type: 'AVRCP_CONNECTED',
+						payload: {
+							connected: true,
+							address
+						}
+					});
+					dispatch(getPlayerInfo(address));
+					resolve(address);
+				}
 			}
 		);
 	});
