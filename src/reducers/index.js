@@ -6,7 +6,8 @@ import playerInfo from "./playerInfo";
 import folderItems from "./folderItems";
 import noOfFolderItems from "./numberOfFolderItems";
 import folderPath from "./folderPath";
-import selectedMusic from "./selectedMusic"
+import selectedMusic from "./selectedMusic";
+import selectedMusicStatus from "./playStatus";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   playerInfo,
   folderItems,
   noOfFolderItems,
+  selectedMusicStatus,
   folderPath
 });
 export default rootReducer;

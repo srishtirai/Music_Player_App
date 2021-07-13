@@ -4,6 +4,7 @@ import { changePath } from "../../actions/navigationActions";
 import AudioPlayer from "../../components/AudioPlayer/AudioPlayer";
 import setSelectedItem from "../../actions/audioActions";
 import playOrPauseItem from "../../actions/playOrPausetem";
+import playItem from "../../actions/playItem";
 
 const AudioPanel = ({
   audioItems,
@@ -11,7 +12,8 @@ const AudioPanel = ({
   handleBack,
   setSelectedItem,
   audioMetaData,
-  playOrPauseItem
+  playOrPauseItem,
+  playItem
 }) => {
   const handleNextAudio = () => {
     if (audioItems && audioItems.length > 0) {
@@ -39,11 +41,11 @@ const AudioPanel = ({
   };
 
   const play = () =>{
-    playOrPauseItem(play);
+    playItem(audioMetaData.path);
   };
 
   const pause = () =>{
-    playOrPauseItem(pause);
+    playOrPauseItem('pause');
   };
 
   return (
@@ -92,7 +94,8 @@ const mapDispatchToState = (dispatch) => {
   return {
     handleBack: (path) => dispatch(changePath(path)),
     setSelectedItem: (audioMetaData, index) => dispatch(setSelectedItem(audioMetaData, index)),
-    playOrPauseItem: (status) => dispatch(playOrPauseItem(status))
+    playOrPauseItem: (status) => dispatch(playOrPauseItem(status)),
+    playItem: (path) => dispatch(playItem(path))
   };
 };
 

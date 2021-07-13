@@ -14,7 +14,15 @@ const playOrPauseItem = (status) => (dispatch) => {
 				resolve: resolve
 			},
 			(res) => {
-				normalLog('changePath Response: ' + JSON.stringify(res), {}, '');
+				normalLog('PlayOrPauseOnPhone Response: ' + JSON.stringify(res), {}, '');
+				if(res.returnValue){
+					dispatch({
+						type: 'SELECTED_MUSIC_STATUS',
+						payload: {
+							status
+						}
+					});
+				}
 			}
 		);
 	});

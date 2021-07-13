@@ -8,6 +8,7 @@ import AudioList from "../../components/AudioList/AudioList";
 import { changePath } from "../../actions/navigationActions";
 import setSelectedItem from "../../actions/audioActions";
 import css from "./MainPanel.module.less";
+import playItem from "../../actions/playItem";
 
 const MainPanel = ({
   handleNavigate,
@@ -22,6 +23,7 @@ const MainPanel = ({
   avrcpStatus,
   noOfItems,
   audioItems,
+  playItem,
   ...rest
 }) => {
   useEffect(() => { 
@@ -31,6 +33,7 @@ const MainPanel = ({
     console.log(index)
     setSelectedItem(audioMetaData, index);
     handleNavigate(url);
+    playItem(audioMetaData.path);
   };
   
   return (
@@ -67,7 +70,8 @@ const mapStateToProps = ({playerInfo,folderPath,avrcpConnectionStatus, folderIte
 const mapDispatchToState = (dispatch) => {
   return {
     handleNavigate: (path) => dispatch(changePath(path)),
-    setSelectedItem: (audioMetaData, index) => dispatch(setSelectedItem(audioMetaData, index))
+    setSelectedItem: (audioMetaData, index) => dispatch(setSelectedItem(audioMetaData, index)),
+    playItem: (path) => dispatch(playItem(path))
   };
 };
 
